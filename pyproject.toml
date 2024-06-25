@@ -46,4 +46,5 @@ dev = [
     "opentelemetry-instrumentation-starlette>=0.46b0",
     "connexion[uvicorn]>=3.1.0",
     "mypy>=1.10.0",
+    "bandit>=1.7.9",
 ]
