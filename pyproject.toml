@@ -1,0 +1,51 @@
+[project]
+name = "ASGIMiddlewares"
+version = "0.1.0"
+description = "ASGI Middleware collection"
+authors = [
+    {name = "mszymutk", email = "mszymutk@redhat.com"},
+    {name = "Red Hat Release Engineering"},
+]
+dependencies = [
+    "starlette>=0.37.2",
+    "connexion>=3.1.0",
+    "contextvars>=2.4",
+    "prometheus-client>=0.20.0",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.black]
+skip-string-normalization = true
+target-version = ['py312']
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+
+tox = [
+    "tox>=4.15.1",
+    "tox-pdm>=0.7.2",
+]
+dev = [
+    "pytest>=8.2.2",
+    "pytest-asyncio>=0.23.7",
+    "coverage>=7.5.3",
+    "pytest-cov>=5.0.0",
+    "black>=24.4.2",
+    "pylint>=3.2.3",
+    "opentelemetry-api>=1.25.0",
+    "opentelemetry-instrumentation-aiohttp-client>=0.46b0",
+    "opentelemetry-sdk>=1.25.0",
+    "opentelemetry-instrumentation-starlette>=0.46b0",
+    "connexion[uvicorn]>=3.1.0",
+    "mypy>=1.10.0",
+    "bandit>=1.7.9",
+]
