@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "ASGI Middleware collection"
 authors = [
     {name = "mszymutk", email = "mszymutk@redhat.com"},
+    {name = "Red Hat Release Engineering"},
 ]
 dependencies = [
     "starlette>=0.37.2",
