@@ -64,6 +64,8 @@ class ExtendedLoggingMiddleware:  # pylint: disable=too-few-public-methods
         :param fields: Fields to be included in the logging.
                        See POSSIBLE_FIELDS for possible fields.
         """
+        for field in fields:
+            assert field in _FIELD_MAPPING
         self.app = app
         self.fields = fields
 
