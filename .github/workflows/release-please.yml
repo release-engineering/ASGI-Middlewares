@@ -14,14 +14,15 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: googleapis/release-please-action@v4
+      - name: release
+        uses: googleapis/release-please-action@v4
         with:
           release-type: python
           target-branch: ${{ github.ref_name }}
       - uses: actions/checkout@v4
       - name: tag major and minor versions
         run: |
-          TAG_NAME=v$(grep -m 1 version pyproject.toml | tr -s ' ' | tr -d '"' | tr -d "'" | cut -d' ' -f3)
+          TAG_NAME=v${{ steps.release.outputs.major }}
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "$TAG_NAME" -m "Release $TAG_NAME"
