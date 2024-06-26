@@ -13,10 +13,9 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - uses: googleapis/release-please-action@v4
         with:
           release-type: python
-          package-name: ASGIMiddlewares
       - uses: actions/checkout@v4
       - name: tag major and minor versions
         run: |
