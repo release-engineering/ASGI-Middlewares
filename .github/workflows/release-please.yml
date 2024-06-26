@@ -2,7 +2,6 @@ on:
   push:
     branches:
       - main
-      - init_repo
 
 permissions:
   contents: write
@@ -18,7 +17,6 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           release-type: python
-          target-branch: ${{ github.ref_name }}
       - uses: actions/checkout@v4
       - name: tag major and minor versions
         if: ${{ steps.release.outputs.release_created }}
