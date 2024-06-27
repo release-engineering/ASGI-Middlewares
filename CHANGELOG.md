@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.1...v0.1.2) (2024-06-27)
+
+
+### Bug Fixes
+
+* Enable Bandit in CI/CD. ([#8](https://github.com/release-engineering/ASGI-Middlewares/issues/8)) ([b7636df](https://github.com/release-engineering/ASGI-Middlewares/commit/b7636df542ef92b04382de192f5b7189c01f6a56))
+
 ## [0.1.1](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.0...v0.1.1) (2024-06-27)
 
 
