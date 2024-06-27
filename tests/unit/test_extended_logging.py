@@ -150,3 +150,8 @@ async def test_extended_logging_middleware(
     await send(message)
 
     assert _logging_ctx_var.get() == expected
+
+
+def test_extended_logging_middleware_invalid_field():
+    with pytest.raises(ValueError, match="Unknown field to log: 'foo'!"):
+        ExtendedLoggingMiddleware(MagicMock(), ("foo", "boar"))

@@ -65,7 +65,8 @@ class ExtendedLoggingMiddleware:  # pylint: disable=too-few-public-methods
                        See POSSIBLE_FIELDS for possible fields.
         """
         for field in fields:
-            assert field in _FIELD_MAPPING
+            if field not in _FIELD_MAPPING:
+                raise ValueError(f"Unknown field to log: '{field}'!")
         self.app = app
         self.fields = fields
 
