@@ -1,5 +1,5 @@
 [project]
-name = "ASGIMiddlewares"
+name = "ASGIMiddleware"
 version = "0.1.0"
 description = "ASGI Middleware collection"
 authors = [
