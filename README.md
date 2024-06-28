@@ -103,3 +103,13 @@ Custom Routing and Custom Exception need to substitute Connexion's original
 middlewares. For this purpose, function `replace_middleware` can be used.
 
 To position your middlewares accordingly, use `CustomMiddlewarePosition` enum.
+
+## Context variables
+
+Some of the provided middlewares provide context variables to store the information
+gathered for later use. The provided variables are:
+
+- `logging_ctx_var: ContextVar[dict[str, typing.Any]]`, variable used for logging
+  all selected fields from `ExtendedLoggingMiddleware`
+- `request_time_ctx_var: ContextVar[float | None]`, variable used for keeping track
+  of the request duration.

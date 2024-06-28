@@ -3,7 +3,7 @@ import pytest
 from typing import Any, Dict
 from unittest.mock import MagicMock, AsyncMock, patch
 
-from asgimiddlewares.utils import _logging_ctx_var
+from asgimiddlewares.utils import logging_ctx_var
 from asgimiddlewares.extended_logging import (
     parse_headers,
     ExtendedLoggingMiddleware,
@@ -149,7 +149,7 @@ async def test_extended_logging_middleware(
     _, __, send = mock_app.call_args.args
     await send(message)
 
-    assert _logging_ctx_var.get() == expected
+    assert logging_ctx_var.get() == expected
 
 
 def test_extended_logging_middleware_invalid_field():

@@ -5,7 +5,7 @@ from typing import Dict, List, Tuple, Iterable
 from starlette.datastructures import Headers
 from starlette.types import ASGIApp, Receive, Scope, Send, Message
 
-from .utils import _logging_ctx_var
+from .utils import logging_ctx_var
 
 
 _FIELD_MAPPING = {
@@ -91,6 +91,6 @@ class ExtendedLoggingMiddleware:  # pylint: disable=too-few-public-methods
 
             await send(message)
 
-        _logging_ctx_var.set(data)
+        logging_ctx_var.set(data)
 
         await self.app(scope, receive, send_wrapper)

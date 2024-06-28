@@ -6,9 +6,9 @@ from contextvars import ContextVar
 from opentelemetry.trace import Span, INVALID_SPAN
 from starlette.types import Scope
 
-_logging_ctx_var: ContextVar[dict[str, Any]] = ContextVar("extended_logs", default={})
+logging_ctx_var: ContextVar[dict[str, Any]] = ContextVar("extended_logs", default={})
 
-_request_time_ctx_var: ContextVar[Optional[float]] = ContextVar(
+request_time_ctx_var: ContextVar[Optional[float]] = ContextVar(
     "request_time", default=None
 )
 
