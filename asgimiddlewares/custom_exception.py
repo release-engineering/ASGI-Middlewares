@@ -9,7 +9,7 @@ from connexion.middleware.exceptions import ExceptionMiddleware
 
 from starlette.requests import Request
 
-from .utils import _logging_ctx_var
+from .utils import logging_ctx_var
 
 LOG = logging.getLogger(__name__)
 
@@ -32,6 +32,6 @@ class CustomExceptionMiddleware(
         # this is needed as the unhandled exception are not
         # caught by the error handlers
         internal_server_error = InternalServerError()
-        internal_server_error.ext = {"trace_id": _logging_ctx_var.get().get("trace_id")}
+        internal_server_error.ext = {"trace_id": logging_ctx_var.get().get("trace_id")}
 
         return internal_server_error.to_problem()

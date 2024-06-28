@@ -9,7 +9,12 @@ from asgimiddlewares.path_id import PathIdMiddleware
 from asgimiddlewares.prometheus import PrometheusMiddleware
 from asgimiddlewares.request_time import RequestTimeMiddleware
 from asgimiddlewares.routing import CustomRoutingMiddleware
-from asgimiddlewares.utils import replace_middleware, server_request_hook
+from asgimiddlewares.utils import (
+    replace_middleware,
+    server_request_hook,
+    request_time_ctx_var,
+    logging_ctx_var,
+)
 
 __all__ = [
     "CustomExceptionMiddleware",
@@ -22,6 +27,8 @@ __all__ = [
     "replace_middleware",
     "server_request_hook",
     "CustomMiddlewarePosition",
+    "request_time_ctx_var",
+    "logging_ctx_var",
 ]
 
 

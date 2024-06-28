@@ -4,7 +4,7 @@ import time
 
 from starlette.types import ASGIApp, Receive, Scope, Send, Message
 
-from .utils import _request_time_ctx_var
+from .utils import request_time_ctx_var
 
 
 class RequestTimeMiddleware:  # pylint: disable=too-few-public-methods
@@ -19,7 +19,7 @@ class RequestTimeMiddleware:  # pylint: disable=too-few-public-methods
         async def wrapped_send(message: Message) -> None:
             if message["type"] == "http.response.start":
                 request_time = time.perf_counter() - time_ref
-                _request_time_ctx_var.set(request_time)
+                request_time_ctx_var.set(request_time)
 
             await send(message)
 

@@ -2,7 +2,7 @@ import pytest
 
 from unittest.mock import AsyncMock
 
-from asgimiddlewares.utils import _request_time_ctx_var
+from asgimiddlewares.utils import request_time_ctx_var
 from asgimiddlewares import RequestTimeMiddleware
 
 
@@ -18,5 +18,5 @@ async def test_request_time_middleware() -> None:
     _, __, send = mock_app.call_args.args
     await send({"type": "http.response.start", "status": 200})
 
-    assert _request_time_ctx_var.get() is not None
-    assert isinstance(_request_time_ctx_var.get(), float)
+    assert request_time_ctx_var.get() is not None
+    assert isinstance(request_time_ctx_var.get(), float)
