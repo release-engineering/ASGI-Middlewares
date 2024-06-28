@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.2...v0.1.3) (2024-06-28)
+
+
+### Features
+
+* Make context variables accessible from outside. ([#10](https://github.com/release-engineering/ASGI-Middlewares/issues/10)) ([2d06371](https://github.com/release-engineering/ASGI-Middlewares/commit/2d06371fdf489f28460750da9198a2ab8e37e0b1))
+
 ## [0.1.2](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.1...v0.1.2) (2024-06-27)
 
 
