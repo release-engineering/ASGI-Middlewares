@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.3...v0.1.4) (2024-07-01)
+
+
+### Bug Fixes
+
+* Non-string parameters no longer cause errors in path-id parsing. ([#12](https://github.com/release-engineering/ASGI-Middlewares/issues/12)) ([b09435b](https://github.com/release-engineering/ASGI-Middlewares/commit/b09435bd55919360f3242ef768fdc66bbffae988))
+
 ## [0.1.3](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.2...v0.1.3) (2024-06-28)
 
 
