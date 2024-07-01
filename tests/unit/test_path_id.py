@@ -38,6 +38,14 @@ from asgimiddlewares import PathIdMiddleware
         pytest.param(
             {
                 "state": {},
+                "path": "/v1/foo/1/bar/1",
+                "path_params": {"foo": 1, "bar": "1"},
+            },
+            "/v1/foo/<foo>/bar/<bar>",
+        ),
+        pytest.param(
+            {
+                "state": {},
                 "path": "/v1/foo/foo/bar/bar",
                 "path_params": {"foo": "foo", "bar": "bar"},
             },
