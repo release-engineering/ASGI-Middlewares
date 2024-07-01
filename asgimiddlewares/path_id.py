@@ -21,8 +21,9 @@ class PathIdMiddleware:  # pylint: disable=too-few-public-methods
         path_id: str = scope.get("path", "")
         if "path_params" in scope:
             for param_name, param_value in reversed(scope["path_params"].items()):
-                endswith_param = path_id.endswith(param_value)
-                pattern = "/" + str(param_value)
+                string_param_value = str(param_value)
+                endswith_param = path_id.endswith(string_param_value)
+                pattern = "/" + string_param_value
                 substitute = f"/<{param_name}>"
 
                 if not endswith_param:
