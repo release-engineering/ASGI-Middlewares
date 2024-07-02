@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.4...v0.1.5) (2024-07-02)
+
+
+### Features
+
+* Improve PathID middleware. ([77a8cd5](https://github.com/release-engineering/ASGI-Middlewares/commit/77a8cd53c36865fb2f5c07c53c15a50bf2c6fb5a))
+
 ## [0.1.4](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.3...v0.1.4) (2024-07-01)
 
 
