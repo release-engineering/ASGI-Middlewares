@@ -52,3 +52,13 @@ def test_routing_middleware(
     assert middleware.router.routes[0].app.default == mock_api.router
 
     middleware.router.mount.assert_called_once_with("/v1", app=mock_api.router)
+
+
+@pytest.mark.asyncio
+async def test_scope_change():
+    middleware = CustomRoutingMiddleware(AsyncMock())
+    mock_router = AsyncMock()
+    middleware.router = mock_router
+    scope = {"type": "http"}
+    await middleware(scope, AsyncMock(), AsyncMock())
+    assert scope["router"] == mock_router

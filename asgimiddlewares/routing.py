@@ -6,6 +6,7 @@ import starlette
 from connexion.middleware.routing import RoutingAPI, RoutingMiddleware
 from connexion.spec import Specification
 from starlette.routing import Route
+from starlette.types import Receive, Scope, Send
 
 
 class CustomRoutingMiddleware(  # pragma: no cover
@@ -77,3 +78,7 @@ class CustomRoutingMiddleware(  # pragma: no cover
                 route.app.default = api.router  # type: ignore
 
         self.router.mount(api.base_path, app=api.router)
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send):
+        scope["router"] = self.router
+        return await super().__call__(scope, receive, send)

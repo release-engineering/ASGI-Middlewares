@@ -9,7 +9,7 @@ Simple usage example can be shown in the following snippet.
 
 ```python
 from connexion import AsyncApp
-from connexion.middleware import ConnexionMiddleware
+from connexion.middleware import ConnexionMiddleware, MiddlewarePosition
 from connexion.middleware.exceptions import ExceptionMiddleware
 from connexion.middleware.routing import RoutingMiddleware
 from opentelemetry.instrumentation.asgi import OpenTelemetryMiddleware
@@ -34,7 +34,8 @@ your_app.add_middleware(
 your_app.add_middleware(
     CustomHeaderMiddleware, position=CustomMiddlewarePosition.BEFORE_CUSTOM_EXCEPTION
 )
-your_app.add_middleware(PathIdMiddleware)
+# Security is normally right after routing, PathID needs to be after CustomRoutingMiddleware
+your_app.add_middleware(PathIdMiddleware, position=MiddlewarePosition.BEFORE_SECURITY)
 
 your_app.add_api(
     {
@@ -52,6 +53,7 @@ your_app.add_api(
 )
 
 your_app.run()
+
 ```
 
 As written in the snippet, you also need a file `ping.py` containing the endpoint logic like so:
@@ -96,8 +98,7 @@ Each middleware is required to have a fixed position in the middleware stack.
 Custom Logging, Custom Header, Prometheus and Request Time need to be located
 before the Exception Middleware to be able to log errors.
 
-Path ID needs to be positioned after routing middleware, position before
-Connexion's Context middleware (default middleware position) also works.
+Path ID needs to be positioned after CustomRoutingMiddleware.
 
 Custom Routing and Custom Exception need to substitute Connexion's original
 middlewares. For this purpose, function `replace_middleware` can be used.
