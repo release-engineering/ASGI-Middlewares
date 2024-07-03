@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.5...v0.1.6) (2024-07-03)
+
+
+### Features
+
+* Improve documentation, make prometheus ignore invalid path_id by default. ([8b0de7e](https://github.com/release-engineering/ASGI-Middlewares/commit/8b0de7ebb7d05a9f1f56b42a052658c652804a83))
+
 ## [0.1.5](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.4...v0.1.5) (2024-07-02)
 
 
