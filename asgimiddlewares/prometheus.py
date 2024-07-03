@@ -43,7 +43,7 @@ class PrometheusMiddleware:
         app: ASGIApp,
         service_name: str = "",
         port: int = 5001,
-        excluded_paths: Iterable[str] = (),
+        excluded_paths: Iterable[str] = ("",),
     ):
         """
         This constructor is intended to be called inside a Connexion
@@ -58,8 +58,8 @@ class PrometheusMiddleware:
         :param int port: Port to expose the metrics, defaults to 5001.
         :param Iterable[str] excluded_paths: Endpoints to exclude from metrics.
         If you wish to exclude an endpoint containing a variable,
-        enclose all variables in <angle brackets> like so:
-        `excluded_paths=("/v1/sample/id/<identifier>",)`
+        enclose all variables in {curly braces} like so:
+        `excluded_paths=("/v1/sample/id/{identifier}",)`
         """
         _setup_prometheus(port)
         if service_name:
