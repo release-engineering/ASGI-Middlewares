@@ -34,7 +34,9 @@ class CustomHeaderMiddleware:  # pylint: disable=too-few-public-methods
         async def send_with_extra_headers(message: Message) -> None:
             if message.get("type") == "http.response.start":
                 headers = MutableHeaders(scope=message)
-                headers.append("trace_id", scope["state"].get("trace_id", "-"))
+                if not headers.getlist("trace_id"):
+                    # Check if the header hasn't been filled in yet (Flask does this)
+                    headers.append("trace_id", scope["state"].get("trace_id", "-"))
 
                 path = scope.get("path", "")
                 # handle CSP
