@@ -215,6 +215,9 @@ with keys being strings from the list above.
 
 ### PathIdMiddleware
 
+**NOTE:** This middleware requires `CustomRoutingMiddleware` to be present in your
+middleware stack.
+
 This middleware adds variable `path_id` to scope, to be used by other middlewares 
 (ExtendedLoggingMiddleware, PrometheusMiddleware). Path ID is argument-agnostic
 endpoint path.

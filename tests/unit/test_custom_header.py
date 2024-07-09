@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 from unittest.mock import AsyncMock
@@ -6,10 +8,52 @@ from asgimiddlewares import CustomHeaderMiddleware
 
 
 @pytest.mark.asyncio
-async def test_custom_header_middleware_with_csp() -> None:
+@pytest.mark.parametrize(
+    ["scope", "headers", "expected"],
+    [
+        pytest.param(
+            {"type": "http", "path": "/some-path", "state": {"trace_id": "123456"}},
+            [],
+            {
+                "type": "http.response.start",
+                "status": 200,
+                "headers": [
+                    (b"trace_id", b"123456"),
+                    (
+                        b"content-security-policy",
+                        b"default-src 'none'; frame-ancestors 'none'",
+                    ),
+                ],
+            },
+            id="Normal situation",
+        ),
+        pytest.param(
+            {
+                "type": "http",
+                "path": "/some-path",
+                "state": {"trace_id": "123456"},
+            },
+            [(b"trace_id", b"123456")],
+            {
+                "type": "http.response.start",
+                "status": 200,
+                "headers": [
+                    (b"trace_id", b"123456"),
+                    (
+                        b"content-security-policy",
+                        b"default-src 'none'; frame-ancestors 'none'",
+                    ),
+                ],
+            },
+            id="trace_id already in scope",
+        ),
+    ],
+)
+async def test_custom_header_middleware_with_csp(
+    scope: dict[str, Any], headers: list[tuple[Any]], expected: dict[str, Any]
+) -> None:
     mock_app = AsyncMock()
     middleware = CustomHeaderMiddleware(mock_app)
-    scope = {"type": "http", "path": "/some-path", "state": {"trace_id": "123456"}}
     mock_receive = AsyncMock()
     mock_send = AsyncMock()
 
@@ -19,22 +63,10 @@ async def test_custom_header_middleware_with_csp() -> None:
     assert send_with_extra_headers_call is not None
 
     await send_with_extra_headers_call(
-        {"type": "http.response.start", "status": 200, "headers": []}
+        {"type": "http.response.start", "status": 200, "headers": headers}
     )
 
-    mock_send.assert_awaited_once_with(
-        {
-            "type": "http.response.start",
-            "status": 200,
-            "headers": [
-                (b"trace_id", b"123456"),
-                (
-                    b"content-security-policy",
-                    b"default-src 'none'; frame-ancestors 'none'",
-                ),
-            ],
-        }
-    )
+    mock_send.assert_awaited_once_with(expected)
 
 
 @pytest.mark.parametrize(
