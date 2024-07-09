@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.7](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.6...v0.1.7) (2024-07-09)
+
+
+### Features
+
+* Make PathId middleware not duplicate trace_id when Flask application is used. ([#16](https://github.com/release-engineering/ASGI-Middlewares/issues/16)) ([d7c492b](https://github.com/release-engineering/ASGI-Middlewares/commit/d7c492b5e0947dd1e4f3c707aa1356cba09ad5c8))
+
 ## [0.1.6](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.5...v0.1.6) (2024-07-03)
 
 
