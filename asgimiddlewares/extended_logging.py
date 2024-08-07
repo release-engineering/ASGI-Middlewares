@@ -16,7 +16,7 @@ _FIELD_MAPPING = {
     f"/{scope.get('http_version')}",
     "query": lambda scope, headers: scope.get("query_string", b"").decode("utf-8"),
     "referer": lambda scope, headers: headers.get("referer"),
-    "remote_address": lambda scope, headers: scope.get("client", ("-", "-"))[0],
+    "remote_address": lambda scope, headers: (scope.get("client") or ("-", "-"))[0],
     "response_length": lambda scope, headers: None,  # handled in response
     "status": lambda scope, headers: None,  # handled in response
     "username": lambda scope, headers: "-",  # TODO
