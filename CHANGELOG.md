@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.8](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.7...v0.1.8) (2024-08-08)
+
+
+### Bug Fixes
+
+* Handle situations where client in scope is set to None. ([#18](https://github.com/release-engineering/ASGI-Middlewares/issues/18)) ([9821c3c](https://github.com/release-engineering/ASGI-Middlewares/commit/9821c3ce6c979e2e0c5f59a9072f2450f568f301))
+
 ## [0.1.7](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.6...v0.1.7) (2024-07-09)
 
 

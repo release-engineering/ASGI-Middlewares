@@ -1,6 +1,6 @@
 [project]
 name = "ASGIMiddleware"
-version = "0.1.7"
+version = "0.1.8"
 description = "Connexion-based ASGI Middleware collection"
 authors = [
     {name = "mszymutk", email = "mszymutk@redhat.com"},
