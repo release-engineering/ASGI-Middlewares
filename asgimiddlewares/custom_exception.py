@@ -1,4 +1,4 @@
-""" Custom middleware to handle exception with extra logging """
+"""Custom middleware to handle exception with extra logging"""
 
 import logging
 

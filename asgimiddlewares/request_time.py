@@ -1,4 +1,4 @@
-""" Middleware for handling request time calculation """
+"""Middleware for handling request time calculation"""
 
 import time
 

@@ -1,4 +1,4 @@
-""" Middleware for handling extended logging """
+"""Middleware for handling extended logging"""
 
 from typing import Dict, List, Tuple, Iterable
 
@@ -6,7 +6,6 @@ from starlette.datastructures import Headers
 from starlette.types import ASGIApp, Receive, Scope, Send, Message
 
 from .utils import logging_ctx_var
-
 
 _FIELD_MAPPING = {
     "method": lambda scope, headers: scope.get("method"),
