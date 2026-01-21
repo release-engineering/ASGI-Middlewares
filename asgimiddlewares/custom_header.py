@@ -1,4 +1,4 @@
-""" Middleware for working with response headers """
+"""Middleware for working with response headers"""
 
 from typing import Iterable
 

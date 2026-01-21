@@ -1,11 +1,10 @@
-""" Middleware for handling path """
+"""Middleware for handling path"""
 
 import logging
 from typing import Optional
 
 from starlette.types import ASGIApp, Receive, Scope, Send
 from starlette.routing import Router, Mount, Match, Route
-
 
 LOG = logging.getLogger(__name__)
 
