@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.9](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.8...v0.1.9) (2026-01-21)
+
+
+### Bug fixes
+
+* Dependency updates
+
 ## [0.1.8](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.7...v0.1.8) (2024-08-08)
 
 
