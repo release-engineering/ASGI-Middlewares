@@ -1,0 +1,31 @@
+---
+# Group dependency updates within each ecosystem into a single weekly PR.
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions every week
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns: ["*"]
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      # Check for updates to Python dependencies every week
+      interval: "weekly"
+    groups:
+      pip:
+        patterns: ["*"]
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      # Check for updates to Docker images every week
+      interval: "weekly"
+    groups:
+      docker:
+        patterns: ["*"]
