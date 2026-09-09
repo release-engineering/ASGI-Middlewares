@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.10](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.9...v0.1.10) (2026-09-09)
+
+
+### Documentation
+
+* **ISV-7458:** add governance ([adf9431](https://github.com/release-engineering/ASGI-Middlewares/commit/adf9431bcb8972ba831fb9dea8654e15c65d3e78))
+
 ## [0.1.9](https://github.com/release-engineering/ASGI-Middlewares/compare/v0.1.8...v0.1.9) (2026-01-21)
 
 
